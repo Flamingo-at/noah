@@ -71,11 +71,11 @@ def main():
             driver.get(f'https://app.noah.com/?referralCode={REF_CODE}')
 
             logger.info('Create an account')
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Sign up')]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Sign up")]'))).click()
             wait.until(EC.element_to_be_clickable((By.ID, 'email'))).send_keys(email)
             password = ''.join(choice(ascii_letters) for _ in range(10))
             wait.until(EC.element_to_be_clickable((By.ID, 'password'))).send_keys(password)
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Sign up')]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Sign up")]'))).click()
 
             logger.info('Check email')
             email_id = check_email(email.split('@')[0], email.split('@')[1], 0)
@@ -85,12 +85,12 @@ def main():
 
             logger.info('Confirm email')
             wait.until(EC.element_to_be_clickable((By.ID, 'verificationCode'))).send_keys(verification_сode)
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Continue')]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Continue")]'))).click()
 
             logger.info('Set nickname')
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Next')]'))).click()
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Continue')]'))).click()
-            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), 'Not now')]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Next")]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Continue")]'))).click()
+            wait.until(EC.element_to_be_clickable((By.XPATH, '//button[contains(text(), "Not now")]'))).click()
             time.sleep(2)
 
         except Exception as error:
